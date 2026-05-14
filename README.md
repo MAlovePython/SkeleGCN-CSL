@@ -82,58 +82,6 @@ SkeleGCN-CSL/
 
 ---
 
-## ⚡ Quick Start
-
-### 1. Install dependencies
-
-```bash
-pip install torch torchvision torch-geometric
-pip install mediapipe opencv-python numpy tqdm matplotlib colorlog Pillow
-```
-
-> Tested on: Python 3.9.7 · PyTorch 1.11.0+cu113 · CUDA 11.2 · Windows 10
-
-### 2. Prepare data & model weights
-
-Place your preprocessed data files and trained model checkpoint:
-
-```
-data/CSL-500/processed/csl500_data.npy
-data/CSL-500/processed/csl500_labels.npy
-model_checkpoints/best_model_fold0.pth
-```
-
-Verify paths in your config file before running.
-
-### 3. Real-time recognition (webcam)
-
-```bash
-python test_translation.py
-```
-
-### 4. Train from scratch
-
-```bash
-cd train
-python train.py
-```
-
-Training config:
-- Optimizer: AdamW · LR: 1e-4 · Weight decay: 1e-4
-- Scheduler: CosineAnnealingLR (min LR: 1e-6)
-- Epochs: 80–100 · Batch size: 10
-- Validation: 5-fold cross-validation
-- ~2.5 hrs per fold on RTX 3060 Laptop
-
-### 5. Evaluate a checkpoint
-
-```bash
-cd train
-python model_check.py
-```
-
----
-
 ## 📊 Results on CSL-500
 
 | Metric | Score |
